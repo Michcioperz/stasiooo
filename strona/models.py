@@ -1,5 +1,8 @@
 # encoding: utf-8
 from django.db import models
+from django.contrib.auth.models import User
+from tinymce import models as tinymce_models
+import datetime
 
 class Entry(models.Model):
     title = models.CharField(verbose_name="tytuł", max_length=255)
