@@ -4,3 +4,4 @@ django-tinymce
 pep8
 pyflakes
 pylint
+coverage
