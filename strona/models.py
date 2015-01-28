@@ -7,11 +7,11 @@ import datetime
 
 class Entry(models.Model):
     title = models.CharField(verbose_name="tytuł", max_length=255)
-    author = models.ForeignKey(User, verbose_name="autor", \
-             related_name="blog_posts")
+    author = models.ForeignKey(User, verbose_name="autor",
+                               related_name="blog_posts")
     content = tinymce_models.HTMLField(verbose_name="treść")
-    publication_time = models.DateTimeField(verbose_name="czas publikacji", \
-                       default=datetime.datetime.now)
+    publication_time = models.DateTimeField(verbose_name="czas publikacji",
+                                            default=datetime.datetime.now)
     approved = models.BooleanField(verbose_name="zatwierdzone", default=False)
     pinned = models.BooleanField(verbose_name="przypięte", default=False)
 
