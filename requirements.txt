@@ -1,5 +1,6 @@
 Django
 django-jenkins
+django-tinymce
 pep8
 pyflakes
 pylint
