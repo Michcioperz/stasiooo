@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>{% block title %}Strona{% endblock title %} @ I LO im. Staszica w Lublinie</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  </head>
+  <body>
+    {% block nav %}<!-- TODO: make nav -->{% endblock nav %}
+    {% block body %}{% endblock body %}
+    {% block footer %}
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <strong>Korespondencja</strong>
+        <address>
+          I Liceum Ogólnokształcące im. Stanisława Staszica w Lublinie<br>
+          20-043 Lublin, Al. Racławickie 26<br>
+          Regon: 000209556<br>
+          NIP: 712-23-06-548
+        </address>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <strong>Sekretariat</strong>
+        <address>
+          Telefon: 81 441-14-60<br>
+          Fax: 81 441-14-61
+        </address>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <strong>E-mail</strong>
+        <dl class="dl-horizontal">
+          <dt>Dyrektor Stanisław Stoń</dt>
+          <dd><a href="mailto:dyrekcja@lo01.pl">dyrekcja@lo01.pl</a></dd>
+          <dt>Sekretariat</dt>
+          <dd><a href="mailto:poczta@lo01.lublin.eu">poczta@lo01.lublin.eu</a></dd>
+          <dt>W sprawie Dziennika Elektronicznego</dt>
+          <dd><a href="mailto:dziennik@lo01.pl">dziennik@lo01.pl</a></dd>
+          <dt>W sprawie Strony Szkoły</dt>
+          <dd><a href="mailto:strona@lo01.pl">strona@lo01.pl</a></dd>
+        </dl>
+      </div>
+    </div>
+    {% endblock footer %}
+  </body>
+</html>
