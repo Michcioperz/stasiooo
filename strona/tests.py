@@ -8,9 +8,9 @@ class EntryTestCase(TestCase):
         User.objects.create_user("test", "tester@localhost", "123not4")
         Entry.objects.create(title="Some title",
                              content="No content yet, well",
-                             author=User.objects.get(username="test"))
+                             author=User.objects.get_by_natural_key("test"))
 
     def test_author_existent(self):
         entry = Entry.objects.get(title="Some title")
-        user = User.objects.get(username="test")
+        user = User.objects.get_by_natural_key(username="test")
         self.assertEqual(entry.author, user)
