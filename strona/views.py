@@ -1,3 +1,4 @@
-# from django.shortcuts import render
+from django.shortcuts import render
 
-# TODO: views
+def index(request):
+    return render(request, "stasiooo/index.html")
