@@ -1,9 +1,9 @@
 {% extends "stasiooo/core.html" %}
 {% block title %}{{ post.title }}{% endblock title %}
-{% block content %}
+{% block body %}
 <div class="jumbotron">
   <h2>{{ post.title }}</h2>
   <h4>dodane {{ post.publication_date }} {% firstof post.author.get_full_name post.author.get_username %}</h4>
   {{ post.content|safe }}
 </div>
-{% endblock content %}
+{% endblock body %}
