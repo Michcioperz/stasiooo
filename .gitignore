@@ -2,3 +2,5 @@
 *.pyo
 stasiooo/secret_key.py
 */migrations/
+staticf/
+db.sqlite3
