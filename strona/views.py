@@ -19,8 +19,13 @@ def post_show(request, pid):
 def post_edit(request, pid):
     """Applies edits to a blog post or shows the editing form."""
     bpost = get_object_or_404(Entry, pk=pid)
+    initial = {
+        "title": bpost.title,
+        "content": bpost.content,
+        "publication_time": bpost.publication_time
+    }
     if request.method == "POST":
-        form = OwnEntryForm(request.POST, initial={"title": bpost.title, "content": bpost.content, "publication_time": bpost.publication_time})
+        form = OwnEntryForm(request.POST, initial=initial)
         if form.is_valid():
             if bpost.author == request.user and form.has_changed():
                 bpost.title = form.cleaned_data["title"]
@@ -29,5 +34,6 @@ def post_edit(request, pid):
                 bpost.save()
                 return HttpResponseRedirect(reverse("post_show", args=(pid,)))
     else:
-        form = OwnEntryForm(initial={"title": bpost.title, "content": bpost.content, "publication_time": bpost.publication_time})
-    return render(request, "stasiooo/post_edit.html", {"post": bpost, "form": form})
+        form = OwnEntryForm(initial=initial)
+    return render(request, "stasiooo/post_edit.html",
+                  {"post": bpost, "form": form})
