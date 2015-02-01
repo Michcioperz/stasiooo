@@ -9,5 +9,5 @@ class OwnEntryForm(forms.Form):
     content = forms.CharField(label="Treść",
                               widget=widgets.TinyMCE(attrs={"cols": 80,
                                                             "rows": 30}))
-    publication_date = forms.DateTimeField(label="Czas publikacji",
+    publication_time = forms.DateTimeField(label="Czas publikacji",
                                            initial=datetime.datetime.now())

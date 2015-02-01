@@ -1,0 +1,10 @@
+{% extends "stasiooo/core.html" %}
+{% block title %}Edycja wpisu {{ post.title }}{% endblock title %}
+{% block head %}{{ form.media }}{% endblock head %}
+{% block body %}
+<form action="{% url "post_edit" post.pk %}" method="post">
+  {% csrf_token %}
+  {{ form }}
+  <input type="submit" value="Zapisz" />
+</form>
+{% endblock body %}
