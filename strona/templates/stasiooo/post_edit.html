@@ -2,9 +2,12 @@
 {% block title %}Edycja wpisu {{ post.title }}{% endblock title %}
 {% block head %}{{ form.media }}{% endblock head %}
 {% block body %}
-<form action="{% url "post_edit" post.pk %}" method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <input type="submit" value="Zapisz" />
-</form>
+<div class="container">
+  <h2>Edycja wpisu {{ post.title }}</h2>
+  <form action="{% url "post_edit" post.pk %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Zapisz" />
+  </form>
+</div>
 {% endblock body %}
