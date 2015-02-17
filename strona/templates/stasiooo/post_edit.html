@@ -6,8 +6,12 @@
   <h2>Edycja wpisu {{ post.title }}</h2>
   <form action="{% url "post_edit" post.pk %}" method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Zapisz" />
+    {{ form.non_field_errors }}
+    <div class="form-group">
+      <label for="{{ form.title.id_for_label }}">Tytuł</label>
+      <input class="form-control" maxlength="255" name="title" type="text" value="{{ post.title }}">
+    </div>
+    <input class="btn btn-primary btn-lg pull-right" type="submit" value="Zapisz" />
   </form>
 </div>
 {% endblock body %}
