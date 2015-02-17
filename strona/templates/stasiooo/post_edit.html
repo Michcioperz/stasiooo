@@ -4,7 +4,7 @@
 {% block body %}
 <form action="{% url "post_edit" post.pk %}" method="post">
   {% csrf_token %}
-  {{ form }}
+  {{ form.as_p }}
   <input type="submit" value="Zapisz" />
 </form>
 {% endblock body %}
