@@ -1,5 +1,44 @@
 {% extends "stasiooo/core.html" %}
+{% load staticfiles %}
 {% block title %}Start{% endblock title %}
+{% block nav_in %}
+  <ul id="slide-out" class="side-nav fixed blue-grey" style="width: 50px">
+    <li><a href="#area1" title="O szkole"><h3 class="center"><i class="mdi-social-school"></i></h3></a></li>
+    <li><a href="#area2" title="Newsy"><h3 class="center"><i class="mdi-communication-textsms"></i></h3></a></li>
+  </ul>
+<script>$(".button-collapse").sideNav({menuWidth: 50});</script>
+{% endblock nav_in %}
 {% block body %}
-Tu może być kiedyś jakaś treść
+<div id="area1" class="section nopad">
+  <div class="parallax-container">
+    <div class="parallax"><img src="{% static "para1.jpg" %}"></div>
+    <div class="container">
+      <span style="text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff">
+        <h1 class="center header orange-text">Najlepsza szkoła w województwie lubelskim</h1>
+        <h3 class="center header light-blue-text">tu miejsce na jakiś żart o innych szkołach ;)</h3>
+      </span>
+    </div>
+  </div>
+</div>
+<script>
+$(document).ready(function(){$('.parallax').parallax();});
+</script>
+<div id="area2" class="section">
+  <div class="container">
+    <h3 class="header">Newsy</h3>
+    <div class="row">
+    {% for nw in news %}
+      <div class="col s12 m6"><div class="card {% cycle "red" "pink" "purple" "deep-purple" "indigo" "blue" "light-blue" "cyan" "teal" "green" "light-green" "lime" "yellow" "amber" "orange" "deep-orange" %}">
+        <div class="card-content white-text">
+          <span class="card-title">{{ nw.title }}</span>
+          <p>{{ nw.content | truncatewords_html:20 | safe }}</p>
+        </div>
+        <div class="card-action">
+          <a href="{% url "post_show" nw.pk %}">Czytaj więcej</a>
+        </div>
+      </div></div>
+    {% endfor %}
+    </div>
+  </div>
+</div>
 {% endblock body %}

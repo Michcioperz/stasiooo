@@ -7,7 +7,7 @@ from .forms import OwnEntryForm
 
 def index(request):
     """Builds homepage. Much explanation"""
-    return render(request, "stasiooo/index.html")
+    return render(request, "stasiooo/index.html", {"news": Entry.objects.exclude(approved=False).order_by("-pinned","-publication_time")})
 
 
 def post_show(request, pid):
